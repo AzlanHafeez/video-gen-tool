@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sora Studio — Text to Video</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="logo">
+    <span class="logo-mark">◐</span>
+    <span class="logo-text">SORA <em>STUDIO</em></span>
+  </div>
+  <div class="model-select">
+    <label for="model">MODEL</label>
+    <select id="model">
+      <option value="sora-2">sora-2</option>
+      <option value="sora-2-pro">sora-2-pro</option>
+    </select>
+  </div>
+</header>
+
+<main>
+
+  <section class="slate-wrap">
+    <form id="slate" class="clapperboard">
+      <div class="clap-top" id="clapTop">
+        <div class="clap-stripes"></div>
+      </div>
+
+      <div class="clap-body">
+        <div class="clap-row meta-row">
+          <div class="meta-field">
+            <label>SCENE</label>
+            <span id="sceneNo" class="mono">01</span>
+          </div>
+          <div class="meta-field">
+            <label>DURATION</label>
+            <select id="seconds">
+              <option value="4">4s</option>
+              <option value="8" selected>8s</option>
+              <option value="12">12s</option>
+            </select>
+          </div>
+          <div class="meta-field">
+            <label>SIZE</label>
+            <select id="size">
+              <option value="1280x720" selected>1280×720</option>
+              <option value="720x1280">720×1280</option>
+              <option value="1024x1024">1024×1024</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="clap-row prompt-row">
+          <label for="prompt">PROMPT</label>
+          <textarea id="prompt" rows="3" placeholder="A slow dolly shot through a neon-lit street market at night, rain reflecting the signs..." required></textarea>
+        </div>
+
+        <button type="submit" id="actionBtn" class="action-btn">
+          <span class="tally"></span>
+          ACTION
+        </button>
+      </div>
+    </form>
+    <p id="formError" class="form-error"></p>
+  </section>
+
+  <section class="reel-wrap">
+    <div class="reel-header">
+      <h2>DAILIES</h2>
+      <span class="reel-sub mono">your generated takes</span>
+    </div>
+    <div id="reel" class="reel"></div>
+    <p id="emptyState" class="empty-state">No takes yet. Roll your first scene above.</p>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
